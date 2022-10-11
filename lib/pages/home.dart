@@ -246,7 +246,7 @@ class _HomeState extends State<Home> {
              const SizedBox(height:20.0),
             InkWell(
         onTap: () {
-          _launchURL("www.fireservice.gov.bd");
+          _launchURL('www.fireservice.gov.bd');
         },
               child: Ink(
                 padding: EdgeInsets.all(40),
@@ -266,7 +266,24 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
-                  
+                    shadows: [
+                      Shadow( // bottomLeft
+                          offset: Offset(-1.5, -1.5),
+                          color: Colors.black
+                      ),
+                      Shadow( // bottomRight
+                          offset: Offset(1.5, -1.5),
+                          color: Colors.black
+                      ),
+                      Shadow( // topRight
+                          offset: Offset(1.5, 1.5),
+                          color: Colors.black
+                      ),
+                      Shadow( // topLeft
+                          offset: Offset(-1.5, 1.5),
+                          color: Colors.black
+                      ),
+                    ]
 
                 ),
                 ),
