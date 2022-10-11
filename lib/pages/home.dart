@@ -32,18 +32,19 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      backgroundColor:Color(0xffF2F2F2),
       appBar: AppBar(
+        elevation: 0,
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffF2F2F2),
         //centerTitle: true,
         toolbarHeight: 100,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text('FIRE ALERT',
         style:TextStyle(
-            color: Colors.black,
-          fontSize: 30,
+            color:Color(0xff30475E),
+          fontSize: 40,
         ) ,
         ),
       ),
@@ -56,7 +57,7 @@ class _HomeState extends State<Home> {
          Column(
            crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
             // Divider(
             //   color: Colors.black,
             // ),
@@ -248,20 +249,27 @@ class _HomeState extends State<Home> {
           _launchURL("www.fireservice.gov.bd");
         },
               child: Ink(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(40),
                 width:380,
                 height:200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black,
+                  image: DecorationImage(image: AssetImage('assets/images/fire-truck.jpg'),
+                 fit:BoxFit.cover ),
                 ),
 
-                child: Text('Know more about \n'
-                    'Bangladesh Fire Service & Civil Defences ',
+                child: Text('        Know more about \n'
+                    'Bangladesh Fire Service & \n       '
+                    '  Civil Defences ',
                 style: TextStyle(
-                  color: Colors.deepOrange,
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  
 
-                ),),
+                ),
+                ),
               ),
             )
 
