@@ -3,6 +3,7 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:finalproject/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 _makingPhoneCall() async {
   var url = Uri.parse("tel:999");
   if (await canLaunchUrl(url)) {
@@ -11,6 +12,7 @@ _makingPhoneCall() async {
     throw 'Could not launch $url';
   }
 }
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -18,6 +20,15 @@ class Home extends StatefulWidget {
 
 
 class _HomeState extends State<Home> {
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri(scheme: "https", host: url);
+    if(!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw "Can not launch url";
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -177,7 +188,7 @@ class _HomeState extends State<Home> {
                 ),
 
 
-                const SizedBox(height: 70),
+                const SizedBox(height: 10),
                 // Divider(
                 //   color: Colors.black,
                 // ),
@@ -231,6 +242,28 @@ class _HomeState extends State<Home> {
                 // ),
               ],
             ),
+             const SizedBox(height:20.0),
+            InkWell(
+        onTap: () {
+          _launchURL("www.fireservice.gov.bd");
+        },
+              child: Ink(
+                padding: EdgeInsets.all(10),
+                width:380,
+                height:200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.black,
+                ),
+
+                child: Text('Know more about \n'
+                    'Bangladesh Fire Service & Civil Defences ',
+                style: TextStyle(
+                  color: Colors.deepOrange,
+
+                ),),
+              ),
+            )
 
 
 
