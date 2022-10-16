@@ -45,6 +45,7 @@ class _HomeState extends State<Home> {
         style:TextStyle(
             color:Color(0xff30475E),
           fontSize: 40,
+          //fontFamily: 'Caveat'
         ) ,
         ),
       ),
